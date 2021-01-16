@@ -12,8 +12,8 @@ function App() {
             <BrowserRouter>
                     <Layout>
                         <Switch>
-                            <Route exact path="/" component={HomeContainer} />
-                            <Route path="/items/:id" component={ProductContainer} />
+                            <Route exact path="/items/:id" component={ProductContainer} />
+                            <Route path={["/", "/items?search="]} component={HomeContainer} />
                         </Switch>
                     </Layout>
             </BrowserRouter>
