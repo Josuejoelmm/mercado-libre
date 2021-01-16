@@ -1,22 +1,24 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Breadcrumb from '../../components/BreadCrumb';
+import Breadcrumb from "../../components/BreadCrumb";
+import PurshaseInfo from './PurshaseInfo';
+import MainInfo from './MainInfo';
 
 export default function ProductContainer() {
     return (
-        <Container fluid>
+        <Container fluid className="single_prod_container">
             <Row as="section">
                 <Col>
                     <Breadcrumb />
                 </Col>
             </Row>
-            <Row as="section">
-                <Col className="bg-dark" sm={9}>
-                    COL 1
+            <Row className="bg-white" as="section">
+                <Col md={9}>
+                    <MainInfo />
                 </Col>
-                <Col className="bg-primary" sm={3}>
-                    COL 2
+                <Col className="py-2" md={3}>
+                    <PurshaseInfo />
                 </Col>
             </Row>
         </Container>

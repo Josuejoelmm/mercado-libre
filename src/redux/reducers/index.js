@@ -1,10 +1,10 @@
 import { combineReducers  } from 'redux';
-import productList from './productList';
+import searchProducts from './searchProducts';
 import detailProduct from './detailProduct';
 
 export default combineReducers(
     {
-        productList,
+        searchProducts,
         detailProduct,
     }
 );

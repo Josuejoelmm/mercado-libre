@@ -2,11 +2,12 @@ import { ACTIONS } from '../actions'
 
 const initialState = {
     list: [],
+    breadCrumb: [],
     errorMessage: '',
     isLoading: false
 }
 
-const productList = (state = initialState, action) => {
+const searchProducts = (state = initialState, action) => {
     switch (action.type) {
         case `${ACTIONS.PRODUCTS_SEARCH}_START`:
             return {
@@ -16,6 +17,8 @@ const productList = (state = initialState, action) => {
         case `${ACTIONS.PRODUCTS_SEARCH}_SUCCESS`:
             return {
                 ...state,
+                list: action.payload.data.items,
+                breadCrumb: action.payload.data.categories,
                 isLoading: false
             }
         case `${ACTIONS.PRODUCTS_SEARCH}_ERROR`:
@@ -28,4 +31,4 @@ const productList = (state = initialState, action) => {
     }
 }
 
-export default productList;
+export default searchProducts;
