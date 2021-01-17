@@ -1,0 +1,10 @@
+@import "../../assets/styles/media";
+
+.search_input {
+    @include breakpoint(mobileonly) {
+        margin-top: 0.75rem;
+    }
+}
+.button_collapse {
+    outline: none !important;
+}

@@ -7,7 +7,7 @@ const initialState = {
     isLoading: false
 }
 
-const searchProducts = (state = initialState, action) => {
+const requestedProducts = (state = initialState, action) => {
     switch (action.type) {
         case `${ACTIONS.PRODUCTS_SEARCH}_START`:
             return {
@@ -31,4 +31,4 @@ const searchProducts = (state = initialState, action) => {
     }
 }
 
-export default searchProducts;
+export default requestedProducts;

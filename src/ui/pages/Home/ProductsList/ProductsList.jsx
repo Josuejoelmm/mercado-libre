@@ -2,13 +2,16 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import Product from '../Product';
 
-export default function ProductsList() {
+export default function ProductsList({ list }) {
     return (
         <ListGroup as="ol">
             {
-                [1,2,3,4].map(product => (
-                    <Product key={product} />
-                ))
+                list.map((product, index) => {
+                    if (index < 4) {
+                        return <Product key={product.id} product={product} />
+                    }
+                    return null;
+                })
             }
         </ListGroup>
     );

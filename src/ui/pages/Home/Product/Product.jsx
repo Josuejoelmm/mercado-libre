@@ -4,35 +4,34 @@ import Image from "react-bootstrap/Image";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
+import './styles.scss';
 
-export default function Product() {
+export default function Product({ product }) {
     return (
         <ListGroup.Item as="li">
             <Row>
-                <Col sm="auto">
-                    <Link to="/items/:id">
+                <Col as="figure" sm="auto">
+                    <Link to={`/items/${product.id}`} >
                         <Image
-                            fluid
-                            className="w-100"
-                            src="https://via.placeholder.com/90x90"
+                            className="product_image"
+                            src={product.picture}
                         />
                     </Link>
                 </Col>
                 <Col>
-                    <h4>$ 1.980</h4>
+                    <h4>{product.price.currency === "ARS" ? "$" : null} {Math.round(product.price.amount).toLocaleString('de-DE')}</h4>
+
                     <Link
                         to="/items/:id"
                         className="text-dark text-decoration-none"
                     >
-                        <p>
-                            Macbook Air 13.3 Intel Core I5 512gb Ssd, 8gb (nuevo
-                            Modelo)
-                        </p>
+                        <p>{product.title}</p>
                     </Link>
+                    {product.free_shipping && <span className="free_shipping">Envio Gratis</span>}
                 </Col>
                 <Col className="d-flex flex-column align-items-end" sm={3}>
                 <Button variant="light" size="sx" disabled>
-                    Capital Federal
+                    {product.condition === "new" ? "Nuevo" : "Usado"}
                 </Button>
                 </Col>
             </Row>

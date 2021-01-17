@@ -26,9 +26,7 @@ export default function NavbarComponent(props) {
         history.push(`/items?search=${query}`)
         dispatch(searchProducts(query));
     };
-    console.log(props.match, 'match');
-    console.log(props.location, 'location');
-    console.log(props.history, 'history');
+   
     return (
         <Container fluid className="bg-warning">
             <Container>
@@ -38,13 +36,13 @@ export default function NavbarComponent(props) {
                             <Image src={logo} />
                         </Navbar.Brand>
                     </Link>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Toggle aria-controls="button_collapse basic-navbar-nav" />
                     <Navbar.Collapse
                         className="justify-content-end"
                         id="basic-navbar-nav"
                     >
                         <Form onSubmit={onSearchSubmit} className="w-100">
-                            <InputGroup className="mt-2">
+                            <InputGroup className="search_input">
                                 <FormControl
                                     value={query}
                                     onChange={onChangeSearch}
