@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
+// Get Products list
 router.get('/items', async(req, res, next) => {
     const query = req.query.q;
     let categories = [];
@@ -25,7 +26,7 @@ router.get('/items', async(req, res, next) => {
                     "price": {
                     "currency": item.currency_id,
                     "amount": item.price,
-                    "decimals": item.price - Math.floor(item.price)
+                    "decimals": parseFloat((item.price - Math.floor(item.price)).toFixed(2))
                     },
                     "picture": item.thumbnail,
                     "condition": item.condition,
@@ -47,8 +48,46 @@ router.get('/items', async(req, res, next) => {
         );
         
     } catch (error) {
-        res.status(500).json('Cannot get data, please be sure you are sending item query like: /items?q=item name');
+        res.status(500).json('Internal Server Error');
     }
 })
+
+// Get Single Product by ID
+router.get('/items/:id', async(req, res, next) => {
+    const id = req.params.id;
+
+    try {
+        const response = await axios.get(`https://api.mercadolibre.com/items/${id}`);
+        const data = response.data;
+
+        const description_response = await axios.get(`https://api.mercadolibre.com/items/${id}/description`);
+        const description_text = description_response.data;
+        
+        res.json(
+            {
+                "author": {
+                    "name": "JOSUE",
+                    "lastname": "MENDEZ"
+                },
+                "item": {
+                    "id": data.id,
+                    "title": data.title,
+                    "price": {
+                        "currency": data.currency_id,
+                        "amount": data.price,
+                        "decimals": parseFloat((data.price - Math.floor(data.price)).toFixed(2)),
+                    },
+                    "picture": data.secure_thumbnail,
+                    "condition": data.condition,
+                    "free_shipping": data.shipping.free_shipping,
+                    "sold_quantity": data.sold_quantity,
+                    "description": description_text.plain_text
+                }
+            }
+        );
+    } catch (error) {
+        res.status(500).json('Internal Server Error');
+    }
+});
 
 module.exports = router;

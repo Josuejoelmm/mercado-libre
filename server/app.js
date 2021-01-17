@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const itemsController = require('./controllers/itemsController');
+const itemsRouter = require('./routers/itemsRouter');
 
 // Initialize APP
 const app = express();
@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // ROUTES
-app.use("/api", itemsController);
+app.use("/api", itemsRouter);
 
 let port = process.env.PORT;
 if (port == null || port == "") {
