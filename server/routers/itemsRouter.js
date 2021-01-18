@@ -13,8 +13,8 @@ router.get('/items', async(req, res, next) => {
         const data = response.data;
 
         if (data.filters.length > 0) {
-            categories = data.filters[0].values[0].path_from_root.map(categories => {
-                return categories.name;
+            categories = data.filters[0].values[0].path_from_root.map(category => {
+                return category.name;
             });
         }
 
@@ -55,6 +55,7 @@ router.get('/items', async(req, res, next) => {
 // Get Single Product by ID
 router.get('/items/:id', async(req, res, next) => {
     const id = req.params.id;
+    let categories = [];
 
     try {
         const response = await axios.get(`https://api.mercadolibre.com/items/${id}`);
@@ -63,12 +64,23 @@ router.get('/items/:id', async(req, res, next) => {
         const description_response = await axios.get(`https://api.mercadolibre.com/items/${id}/description`);
         const description_text = description_response.data;
         
+        const category_id = data.category_id;
+        const category_response = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?category=${category_id}`);
+        const category_data = category_response.data;
+
+        if (category_data.filters.length > 0) {
+            categories = category_data.filters[0].values[0].path_from_root.map(category => {
+                return category.name;
+            });
+        }
+
         res.json(
             {
                 "author": {
                     "name": "JOSUE",
                     "lastname": "MENDEZ"
                 },
+                "categories" : categories,
                 "item": {
                     "id": data.id,
                     "title": data.title,
