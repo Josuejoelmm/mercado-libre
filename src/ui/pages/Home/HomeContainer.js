@@ -9,21 +9,21 @@ import Col from "react-bootstrap/Col";
 import Breadcrumb from '../../components/BreadCrumb';
 import ProductsList from './ProductsList';
 import Loader from '../../components/Loader';
+import NotItemsFound from '../../components/NotItemsFound';
 
 export default function HomeContainer() {
     const dispatch = useDispatch();
     const query = useQuery();
     const searchParam = query.get('search');
     const requestedProducts = useSelector(state => state.requestedProducts);
-    const { isLoading } = requestedProducts;
-    const { list, breadCrumb } = requestedProducts;
+    const { list, breadCrumb, showSearchMsg, isLoading } = requestedProducts;
 
     useEffect(() => {
-        console.log('VOLVI A EJECUTAR DIDMOUNT');
-        dispatch(searchProducts(searchParam));
+        if (searchParam !== null) {
+            dispatch(searchProducts(searchParam));
+        }
     }, []);
     
-    console.log(searchParam, 'QUE QUERY MANDO?');
     return (
         <Container fluid>
             {
@@ -32,18 +32,18 @@ export default function HomeContainer() {
                 <>
                 <Row as="section">
                     <Col>
-                        <Breadcrumb breadCrumb={breadCrumb} />
+                        { breadCrumb.length > 0 ? <Breadcrumb breadCrumb={breadCrumb} /> : null }
                     </Col>
                 </Row>
                 <Row as="section">
                     <Col>
-                        {
-                            list.length > 0 && 
-                            <ProductsList list={list} />
-                        }
+                        { list.length > 0 && <ProductsList list={list} /> }
                     </Col>
                 </Row>
                 </>
+            }
+            {
+                showSearchMsg && <NotItemsFound />
             }
         </Container>
     );

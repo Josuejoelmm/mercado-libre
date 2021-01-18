@@ -1,25 +1,14 @@
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import "./styles.scss";
 
-export default function BreadcrumbComp() {
+export default function BreadcrumbComp({ breadCrumb }) {
     return (
         <Breadcrumb>
-            <Breadcrumb.Item className="text-decoration-none">
-                <span className="text-dark text-muted">
-                    Electrónica, Audio y Video
-                </span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-                <span className="text-dark text-muted">Audio</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-                <span className="text-dark text-muted">
-                    Reproductores Portátiles
-                </span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-                <span className="text-dark text-muted">iPod</span>
-            </Breadcrumb.Item>
+            {breadCrumb.map(value => (
+                <Breadcrumb.Item key={value}>
+                    <span className="text-dark text-muted">{value}</span>
+                </Breadcrumb.Item>
+            ))}
         </Breadcrumb>
     );
 }

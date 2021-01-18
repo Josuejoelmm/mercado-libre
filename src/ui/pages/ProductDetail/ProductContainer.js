@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Breadcrumb from '../../components/BreadCrumb';
+import ErrorMessageRequest from '../../components/ErrorMessageRequest/ErrorMessageRequest';
 import PurshaseInfo from './PurshaseInfo';
 import MainInfo from './MainInfo';
 import Loader from '../../components/Loader';
@@ -15,41 +16,51 @@ export default function ProductContainer() {
     const dispatch = useDispatch();
     const singleProduct = useSelector(state => state.singleProduct.details);
     const isLoadingProduct = useSelector(state => state.singleProduct.isLoadingProduct);
+    const breadCrumb = useSelector(state => state.singleProduct.breadCrumb);
+    const errorRequest = useSelector(state => state.singleProduct.errorRequest);
 
     useEffect(() => {
         dispatch(getProducDetail(id));
     }, []);
 
     return (
-        <Container fluid className="single_prod_container">
-            {
-                isLoadingProduct ? 
-                <Loader /> :
-                <>
-                <Row as="section">
-                    <Col>
-                        <Breadcrumb />
-                    </Col>
-                </Row>
-                <Row className="bg-white" as="section">
-                    <Col md={8}>
-                        <MainInfo
-                            picture={singleProduct.picture && singleProduct.picture}
-                            description={singleProduct.description && singleProduct.description}
-                        />
-                    </Col>
-                    <Col className="py-2" md={4}>
-                        <PurshaseInfo 
-                            title={singleProduct.title && singleProduct.title}
-                            condition={singleProduct.condition && singleProduct.condition}
-                            sold_quantity={singleProduct.sold_quantity && singleProduct.sold_quantity}
-                            price={ singleProduct.price !== undefined ? singleProduct.price : null}
-                            free_shipping={singleProduct.free_shipping && singleProduct.free_shipping}
-                        />
-                    </Col>
-                </Row>
-                </>
-            }
-        </Container>
+        <>
+        {
+            isLoadingProduct ? 
+            <Loader /> :
+            errorRequest ?
+            <ErrorMessageRequest message={errorRequest} /> :
+
+            <Container fluid className="single_prod_container">
+                {
+                    singleProduct.description &&
+                    <>
+                    <Row as="section">
+                        <Col>
+                            { breadCrumb.length > 0 ? <Breadcrumb breadCrumb={breadCrumb} /> : null }
+                        </Col>
+                    </Row>
+                    <Row className="bg-white" as="section">
+                        <Col md={8}>
+                                <MainInfo
+                                    picture={singleProduct.picture}
+                                    description={singleProduct.description}
+                                />
+                        </Col>
+                        <Col className="py-2" md={4}>
+                            <PurshaseInfo 
+                                title={singleProduct.title}
+                                condition={singleProduct.condition}
+                                sold_quantity={singleProduct.sold_quantity}
+                                price={singleProduct.price}
+                                free_shipping={singleProduct.free_shipping}
+                                />
+                        </Col>
+                    </Row>
+                    </>
+                }
+            </Container>
+        }
+        </>
     );
 }

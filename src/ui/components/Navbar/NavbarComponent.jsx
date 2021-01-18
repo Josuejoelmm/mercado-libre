@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, useHistory } from "react-router-dom";
@@ -10,10 +10,11 @@ import { GrSearch } from "react-icons/gr";
 import logo from "../../assets/images/logo.png";
 import "./styles.scss";
 import { searchProducts } from "../../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function NavbarComponent(props) {
     const [query, setQuery] = useState('');
+    const details = useSelector(state => state.singleProduct.details);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -23,10 +24,17 @@ export default function NavbarComponent(props) {
 
     const onSearchSubmit = e => {
         e.preventDefault();
-        history.push(`/items?search=${query}`)
-        dispatch(searchProducts(query));
+        if (query) {
+            history.push(`/items?search=${query}`)
+            dispatch(searchProducts(query));
+        }
     };
+
+    useEffect(() => {
+        console.log('VOLVI A HACER DIDMOUNT');
+    }, [details])
    
+    // console.log(history);
     return (
         <Container fluid className="bg-warning">
             <Container>

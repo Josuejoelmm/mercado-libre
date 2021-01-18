@@ -20,9 +20,8 @@ export default function Product({ product }) {
                 </Col>
                 <Col>
                     <h4>{product.price.currency === "ARS" ? "$" : null} {Math.round(product.price.amount).toLocaleString('de-DE')}</h4>
-
                     <Link
-                        to="/items/:id"
+                        to={`/items/${product.id}`}
                         className="text-dark text-decoration-none"
                     >
                         <p>{product.title}</p>
