@@ -1,0 +1,15 @@
+@import "./media.scss";
+@import "./custom.scss";
+
+html, #root, main{
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #EDEDED;
+};
+
+*, ::after, ::before {
+  box-sizing: border-box;
+};

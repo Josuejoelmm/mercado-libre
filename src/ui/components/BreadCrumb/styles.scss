@@ -1,0 +1,9 @@
+nav ol.breadcrumb {
+    background-color: transparent;
+    padding: .75rem 0;
+    position: absolute;
+    top: -64px;
+    & a:hover {
+        text-decoration: none;
+    }
+}

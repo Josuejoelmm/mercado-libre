@@ -1,0 +1,10 @@
+@import "../../../assets/styles/media.scss";
+
+.single_prod_container {
+    & .description_text {
+        margin-top: 1.7rem;
+        @include breakpoint(mobile) {
+            font-size: 0.9rem;
+        }
+    }
+}
