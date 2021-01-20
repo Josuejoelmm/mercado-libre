@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# MercadoLibre-Challengue 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ [MercadoLibre-Challengue] Es una aplicacion simulando el sitio de Mercado libre, utilizando el API de mercado libre desde el servidor del proyecto para crear rutas que seran utilizadas en el frontend. 
+ 
+Incialmente tendras una barra de busqueda, la cual al buscar te mostrará una lista de todos los productos que coincidan con tu busqueda, mostrandote informacion general como su nombre, precio, si es un artico nuevo o no y si cuenta con envio gratis, ademas cada producto de la lista cuenta con enlaces que te llevaran a la pagina del mismo la cual te brindará una informacion mas detallada.
 
-## Available Scripts
+[========]
 
-In the project directory, you can run:
 
-### `npm start`
+### Instalacion del proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[MercadoLibre-Challengue] requiere [Node.js] v12+ .
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+>#####Para el Entorno del Servidor
 
-### `npm test`
+```sh
+$ cd server
+$ npm install 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+[========]
+>##### Para el entorno del Frontend
 
-### `npm run build`
+```sh
+$ cd ..
+$ npm install 
+```
+[========]
+> npm run dev, inicializa tanto el servidor en el puerto 8000 y el entorno del lado del frontend  en el puerto 3000`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+$ npm run dev  
+```
+[========]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Herramientas y tecnologias!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - [reactjs]
+  - [redux]
+  - [hooks]
+  - [axios]
+  - [sass]
+  - [react-bootstrap]
+  - [node.js] 
+  - [express]
+  
+  
+[========]
+###API
 
-### `npm run eject`
+#####Buscar productos por Query
+`http://localhost:8000/api/items?q=:query`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
+#####Buscar Porductos Por ID
+`
+http://localhost:8000/api/items/:id
+`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[========]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###3rd Party API 
+#####Buscar productos por ID
+`
+https://api.mercadolibre.com/items/${id}
+`
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#####Obtener Lista de Productos
+`
+https://api.mercadolibre.com/sites/MLA/search?q=${query}
+`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[========]
 
-### Code Splitting
+### Preview
+######Mercadolibre UI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![](https://imgur.com/PwDDzId.jpg)
 
-### Analyzing the Bundle Size
+[========]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Plugins
+- [React-DevTools]
 
-### Making a Progressive Web App
+- [Redux-DevTools]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Author
+[Josue Méndez]
 
-### Advanced Configuration
+License
+----
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+MIT
 
-### Deployment
+**Free Software, Hell Yeah!**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   [Josue Méndez]: <https://github.com/Josuejoelmm>
+   [MercadoLibre-Challengue]: <https://github.com/Josuejoelmm/mercado-libre>
+   [node.js]: <http://nodejs.org>
+   [express]: <http://expressjs.com>
+   [reactjs]: <https://reactjs.org/>
+   [hooks]: <https://reactjs.org/docs/hooks-intro.html/>
+   [redux]: <https://redux.js.org/>
+   [axios]: <https://github.com/axios/axios/>
+   [sass]: <https://sass-lang.com/>
+   [react-bootstrap]: <https://react-bootstrap.github.io/>
+   [React-DevTools]: <https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en/>
+   [Redux-DevTools]: <https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en/>
