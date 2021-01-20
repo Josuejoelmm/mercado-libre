@@ -4,7 +4,7 @@
  
 Incialmente tendras una barra de busqueda, la cual al buscar te mostrará una lista de todos los productos que coincidan con tu busqueda, mostrandote informacion general como su nombre, precio, si es un artico nuevo o no y si cuenta con envio gratis, ademas cada producto de la lista cuenta con enlaces que te llevaran a la pagina del mismo la cual te brindará una informacion mas detallada.
 
-
+[========]
 
 ### Instalacion del proyecto
 
@@ -18,6 +18,7 @@ $ npm install
 
 ```
 
+---
 
 >##### Para el entorno del Frontend
 
@@ -25,6 +26,7 @@ $ npm install
 $ cd ..
 $ npm install 
 ```
+---
 
 
 > npm run dev, inicializa tanto el servidor en el puerto 8000 y el entorno del lado del frontend  en el puerto 3000`
@@ -32,6 +34,8 @@ $ npm install
 ```sh
 $ npm run dev  
 ```
+
+[========]
 
 
 ### Herramientas y tecnologias!
@@ -46,37 +50,47 @@ $ npm run dev
   - [express]
   
   
+[========]
 
-###API
+### API
 
-#####Buscar productos por Query
-`http://localhost:8000/api/items?q=:query`
+##### Buscar productos por Query
+
+`
+http://localhost:8000/api/items?q=:query
+`
 
 ---
-#####Buscar Porductos Por ID
+##### Buscar Porductos Por ID
 `
 http://localhost:8000/api/items/:id
 `
 
+---
 
-###3rd Party API 
-#####Buscar productos por ID
+
+### 3rd Party API 
+##### Buscar productos por ID
 `
 https://api.mercadolibre.com/items/${id}
 `
 
 ---
 
-#####Obtener Lista de Productos
+##### Obtener Lista de Productos
 `
 https://api.mercadolibre.com/sites/MLA/search?q=${query}
 `
 
+[========]
 
 ### Preview
-######Mercadolibre UI
+###### Mercadolibre UI
 
 ![](https://imgur.com/PwDDzId.jpg)
+
+
+[========]
 
 
 ### Plugins
@@ -84,15 +98,25 @@ https://api.mercadolibre.com/sites/MLA/search?q=${query}
 
 - [Redux-DevTools]
 
+
+[========]
+
+
 ### Author
 [Josue Méndez]
 
-License
-----
+[========]
+
+### License
+
 
 MIT
 
 **Free Software, Hell Yeah!**
+
+---
+
+
 
    [Josue Méndez]: <https://github.com/Josuejoelmm>
    [MercadoLibre-Challengue]: <https://github.com/Josuejoelmm/mercado-libre>
