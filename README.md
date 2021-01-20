@@ -4,7 +4,9 @@
  
 Incialmente tendras una barra de busqueda, la cual al buscar te mostrará una lista de todos los productos que coincidan con tu busqueda, mostrandote informacion general como su nombre, precio, si es un artico nuevo o no y si cuenta con envio gratis, ademas cada producto de la lista cuenta con enlaces que te llevaran a la pagina del mismo la cual te brindará una informacion mas detallada.
 
+
 [========]
+
 
 
 ### Instalacion del proyecto
@@ -18,20 +20,31 @@ $ cd server
 $ npm install 
 
 ```
+
+
 [========]
+
+
 >##### Para el entorno del Frontend
 
 ```sh
 $ cd ..
 $ npm install 
 ```
+
+
 [========]
+
+
 > npm run dev, inicializa tanto el servidor en el puerto 8000 y el entorno del lado del frontend  en el puerto 3000`
 
 ```sh
 $ npm run dev  
 ```
+
+
 [========]
+
 
 ### Herramientas y tecnologias!
 
@@ -46,6 +59,8 @@ $ npm run dev
   
   
 [========]
+
+
 ###API
 
 #####Buscar productos por Query
@@ -56,6 +71,7 @@ $ npm run dev
 `
 http://localhost:8000/api/items/:id
 `
+
 
 [========]
 
@@ -80,7 +96,9 @@ https://api.mercadolibre.com/sites/MLA/search?q=${query}
 
 ![](https://imgur.com/PwDDzId.jpg)
 
+
 [========]
+
 
 ### Plugins
 - [React-DevTools]
