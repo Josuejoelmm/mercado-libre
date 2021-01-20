@@ -10,6 +10,7 @@ import Breadcrumb from '../../components/BreadCrumb';
 import ProductsList from './ProductsList';
 import Loader from '../../components/Loader';
 import NotItemsFound from '../../components/NotItemsFound';
+import { Helmet } from "react-helmet-async";
 
 export default function HomeContainer() {
     const dispatch = useDispatch();
@@ -22,10 +23,19 @@ export default function HomeContainer() {
         if (searchParam !== null) {
             dispatch(searchProducts(searchParam));
         }
+        // eslint-disable-next-line
     }, []);
     
+    const capitalizeTitle = (query) => {
+        let newQuery = query.slice();
+        return newQuery[0].toUpperCase() + newQuery.slice(1)
+    }
+
     return (
         <Container fluid>
+            <Helmet>
+                <title>{`${capitalizeTitle(searchParam)} | Mercado Libre`}</title>
+            </Helmet>
             {
                 isLoading ? 
                 <Loader /> :

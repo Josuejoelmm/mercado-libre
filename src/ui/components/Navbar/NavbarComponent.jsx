@@ -12,7 +12,7 @@ import "./styles.scss";
 import { searchProducts } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function NavbarComponent(props) {
+export default function NavbarComponent() {
     const [query, setQuery] = useState('');
     const details = useSelector(state => state.singleProduct.details);
     const dispatch = useDispatch();
@@ -31,12 +31,10 @@ export default function NavbarComponent(props) {
     };
 
     useEffect(() => {
-        console.log('VOLVI A HACER DIDMOUNT');
     }, [details])
    
-    // console.log(history);
     return (
-        <Container fluid className="bg-warning">
+        <Container fluid className="bg-warning fixed-top">
             <Container>
                 <Navbar className="justify-content-between" expand="sm">
                     <Link to="/">

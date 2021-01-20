@@ -28,6 +28,14 @@ const singleProduct = (state = initialState, action) => {
                 isLoadingProduct: false,
                 errorRequest: 'Ups, Ocurrió un error, por favor intenta buscar otra vez o recarga la página'
             }
+        case `${ACTIONS.PRODUCTS_SEARCH}_START`:
+            if (state.errorRequest) {
+                return {
+                    ...state,
+                    errorRequest: ''
+                }
+            }
+            return state;
         default:
             return state;
     }

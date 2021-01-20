@@ -10,7 +10,7 @@ export default function Product({ product }) {
     return (
         <ListGroup.Item as="li">
             <Row>
-                <Col as="figure" sm="auto">
+                <Col as="figure" xs="auto" sm="3" md="3" lg="3" xl="3">
                     <Link to={`/items/${product.id}`} >
                         <Image
                             className="product_image"
@@ -18,7 +18,7 @@ export default function Product({ product }) {
                         />
                     </Link>
                 </Col>
-                <Col>
+                <Col xs="auto" sm="6" md="6" lg="6" xl="6">
                     <h4>{product.price.currency === "ARS" ? "$" : null} {Math.round(product.price.amount).toLocaleString('de-DE')}</h4>
                     <Link
                         to={`/items/${product.id}`}
@@ -28,7 +28,7 @@ export default function Product({ product }) {
                     </Link>
                     {product.free_shipping && <span className="free_shipping">Envio Gratis</span>}
                 </Col>
-                <Col className="d-flex flex-column align-items-end" sm={3}>
+                <Col className="d-flex flex-column align-items-end" xs="auto" sm="3" md="3" lg="3" xl="3">
                 <Button variant="light" size="sx" disabled>
                     {product.condition === "new" ? "Nuevo" : "Usado"}
                 </Button>

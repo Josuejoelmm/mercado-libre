@@ -10,6 +10,7 @@ import MainInfo from './MainInfo';
 import Loader from '../../components/Loader';
 import { getProducDetail } from '../../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from "react-helmet-async";
 
 export default function ProductContainer() {
     const { id } = useParams();
@@ -21,10 +22,14 @@ export default function ProductContainer() {
 
     useEffect(() => {
         dispatch(getProducDetail(id));
+        // eslint-disable-next-line
     }, []);
 
     return (
         <>
+            <Helmet>
+                <title>{`${singleProduct.title === undefined ? "Producto" : singleProduct.title} | Mercado Libre`}</title>
+            </Helmet>
         {
             isLoadingProduct ? 
             <Loader /> :
