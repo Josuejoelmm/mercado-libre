@@ -4,7 +4,7 @@
  
 Incialmente tendras una barra de busqueda, la cual al buscar te mostrará una lista de todos los productos que coincidan con tu busqueda, mostrandote informacion general como su nombre, precio, si es un artico nuevo o no y si cuenta con envio gratis, ademas cada producto de la lista cuenta con enlaces que te llevaran a la pagina del mismo la cual te brindará una informacion mas detallada.
 
-[========]
+---
 
 ### Instalacion del proyecto
 
@@ -35,7 +35,7 @@ $ npm install
 $ npm run dev  
 ```
 
-[========]
+---
 
 
 ### Herramientas y tecnologias!
@@ -50,7 +50,7 @@ $ npm run dev
   - [express]
   
   
-[========]
+---
 
 ### API
 
@@ -82,7 +82,7 @@ https://api.mercadolibre.com/items/${id}
 https://api.mercadolibre.com/sites/MLA/search?q=${query}
 `
 
-[========]
+---
 
 ### Preview
 ###### Mercadolibre UI
@@ -90,7 +90,7 @@ https://api.mercadolibre.com/sites/MLA/search?q=${query}
 ![](https://imgur.com/PwDDzId.jpg)
 
 
-[========]
+---
 
 
 ### Plugins
@@ -99,13 +99,13 @@ https://api.mercadolibre.com/sites/MLA/search?q=${query}
 - [Redux-DevTools]
 
 
-[========]
+---
 
 
 ### Author
 [Josue Méndez]
 
-[========]
+---
 
 ### License
 
